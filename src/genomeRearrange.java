@@ -14,7 +14,7 @@ public class genomeRearrange {
 		FileReader fr = new FileReader(inputFile);
 		BufferedReader br = new BufferedReader(fr);
 		
-		ArrayList inputHolder = new ArrayList();
+		ArrayList<String> inputHolder = new ArrayList<String>();
 		
 		String inputLine = br.readLine();
 		
@@ -25,7 +25,30 @@ public class genomeRearrange {
 			inputLine = br.readLine();
 		}
 		
-		System.out.println(inputHolder.size());
+		//System.out.println(inputHolder.size());
+		
+		ArrayList<Genome> genomeHolder = new ArrayList<Genome>();
+		
+		String species = null;
+		String genome = null;
+		
+		for(int i=0; i<inputHolder.size(); i++)
+		{
+			if(i%2 == 0)
+			{
+				// species
+				species = inputHolder.get(i).substring(2);
+			}
+			else
+			{
+				// genome
+				genome = inputHolder.get(i);
+				Genome newGenome = new Genome(species, genome);
+				genomeHolder.add(newGenome);
+			}
+		}
+			
+		System.out.println(genomeHolder.size());
 		
 		if(br != null)
 			br.close();
