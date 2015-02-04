@@ -47,8 +47,6 @@ public class genomeRearrange {
 				genomeHolder.add(newGenome);
 			}
 		}
-			
-		System.out.println(genomeHolder.size());
 		
 		if(br != null)
 			br.close();
