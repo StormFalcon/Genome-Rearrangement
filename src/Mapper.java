@@ -37,69 +37,70 @@ public class Mapper {
 	
 	public String makeSourceGenome()
 	{
-		String newSource = null;
+		String mappedSource = null;
 		
-		String[] mapHolder = this.originalTarget.split(" ");
+		String[] originalTargetHolder = this.originalTarget.split(" ");
 		
 		// TRUE for positive
 		// False for negative
-		Boolean[] signHolder = new Boolean[mapHolder.length];
-		Arrays.fill(signHolder, Boolean.TRUE);
+		Boolean[] signOriginalTargetHolder = new Boolean[originalTargetHolder.length];
+		Arrays.fill(signOriginalTargetHolder, Boolean.TRUE);
 		
-		for(int i=0; i<mapHolder.length; i++)
+		for(int i=0; i<originalTargetHolder.length; i++)
 		{
-			String element = mapHolder[i];
+			String originalTargetElement = originalTargetHolder[i];
 			
-			if(element.contains("-"))
+			if(originalTargetElement.contains("-"))
 			{
-				signHolder[i] = false;
-				element = element.substring(1);
-				mapHolder[i] = element;
+				signOriginalTargetHolder[i] = false;
+				originalTargetElement = originalTargetElement.substring(1);
+				originalTargetHolder[i] = originalTargetElement;
 			}
 		}
 		
-		String[] oldSourceHolder = this.originalSource.split(" ");
-		String[] newSourceHolder = new String[oldSourceHolder.length];
+		String[] originalSourceHolder = this.originalSource.split(" ");
+		String[] mappedSourceHolder = new String[originalSourceHolder.length];
 		
-		for(int i=0; i<oldSourceHolder.length; i++)
+		for(int i=0; i<originalSourceHolder.length; i++)
 		{
-			String oldElement = oldSourceHolder[i];
-			Boolean oldSign = true;
-			if(oldElement.contains("-"))
+			String originalSourceElement = originalSourceHolder[i];
+			Boolean signOriginalSource = true;
+			if(originalSourceElement.contains("-"))
 			{
-				oldSign = false;
-				oldElement = oldElement.substring(1);
+				signOriginalSource = false;
+				originalSourceElement = originalSourceElement.substring(1);
 			}
 			
-			Integer index = 0;
-			for(int j=0; j<mapHolder.length; j++)
+			Integer positionIndex = 0;
+			
+			for(int j=0; j<originalTargetHolder.length; j++)
 			{
-				String newElement = mapHolder[j];
-				if(newElement.equals(oldElement))
+				String originalTargetElement = originalTargetHolder[j];
+				if(originalTargetElement.equals(originalSourceElement))
 				{
-					index = j;
+					positionIndex = j;
 					break;
 				}
 			}
 			
-			Boolean newSign = signHolder[index];
+			Boolean newSign = signOriginalTargetHolder[positionIndex];
 			
-			Integer newValue = index + 1;
+			Integer newValue = positionIndex + 1;
 
-			if(oldSign != newSign)
+			if(signOriginalSource != newSign)
 			{
 				newValue = newValue * -1;
 			}
-			newSourceHolder[i] = newValue.toString();
+			mappedSourceHolder[i] = newValue.toString();
 		}
 		
-		newSource = newSourceHolder[0];
-		for(int i=1; i<newSourceHolder.length; i++)
+		mappedSource = mappedSourceHolder[0];
+		for(int i=1; i<mappedSourceHolder.length; i++)
 		{
-			newSource = newSource + " " + newSourceHolder[i];
+			mappedSource = mappedSource + " " + mappedSourceHolder[i];
 		}
 		
-		return newSource;
+		return mappedSource;
 	}
 	
 	public String makeTargetGenome()
