@@ -21,7 +21,9 @@ public class Rearranger {
 		{
 			int count = 0;
 			
-			
+			// Test code
+			Mapper mapper = new Mapper(sourceGenome, targetGenome);
+			mapper.map();
 			
 			return count;
 		}

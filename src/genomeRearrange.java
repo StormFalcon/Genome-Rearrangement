@@ -47,12 +47,16 @@ public class genomeRearrange {
 			}
 		}
 		
+		System.out.println(genomeHolder.size());
+		
 		for(int i=0; i<genomeHolder.size(); i++)
 		{
-			for(int j=1; j<genomeHolder.size(); j++)
+			for(int j=i+1; j<genomeHolder.size(); j++)
 			{
 				Genome source = genomeHolder.get(i);
 				Genome target = genomeHolder.get(j);
+				
+				System.out.println(source.species + '\t' + target.species);
 				
 				Rearranger rearranger = new Rearranger(source, target);
 				int reversalCount = rearranger.rearrange();
