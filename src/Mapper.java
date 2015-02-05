@@ -54,6 +54,7 @@ public class Mapper {
 			{
 				signHolder[i] = false;
 				element = element.substring(1);
+				mapHolder[i] = element;
 			}
 		}
 		
@@ -73,7 +74,8 @@ public class Mapper {
 			Integer index = 0;
 			for(int j=0; j<mapHolder.length; j++)
 			{
-				if(mapHolder[j].equals(oldElement))
+				String newElement = mapHolder[j];
+				if(newElement.equals(oldElement))
 				{
 					index = j;
 					break;
