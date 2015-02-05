@@ -82,28 +82,15 @@ public class Mapper {
 				}
 			}
 			
-			String newElement = mapHolder[index];
 			Boolean newSign = signHolder[index];
 			
-			// String oldElement
-			// Boolean oldSign
-			
 			Integer newValue = index + 1;
-			Boolean flip = false;
+
 			if(oldSign != newSign)
 			{
-				flip = true;
+				newValue = newValue * -1;
 			}
-			
-			
-			String value = newValue.toString();
-		
-			if(flip)
-			{
-				value = "-" + value;
-			}
-			
-			newSourceHolder[i] = value;
+			newSourceHolder[i] = newValue.toString();
 		}
 		
 		newSource = newSourceHolder[0];
