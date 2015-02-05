@@ -1,4 +1,3 @@
-import java.awt.List;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -45,6 +44,18 @@ public class genomeRearrange {
 				genome = inputHolder.get(i);
 				Genome newGenome = new Genome(species, genome);
 				genomeHolder.add(newGenome);
+			}
+		}
+		
+		for(int i=0; i<genomeHolder.size(); i++)
+		{
+			for(int j=1; j<genomeHolder.size(); j++)
+			{
+				Genome source = genomeHolder.get(i);
+				Genome target = genomeHolder.get(j);
+				
+				Rearranger rearranger = new Rearranger(source, target);
+				int reversalCount = rearranger.rearrange();
 			}
 		}
 		
