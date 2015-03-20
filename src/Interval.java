@@ -16,17 +16,14 @@ public class Interval {
 		String[] intervalHolder = interval.split(" ");
 		String start = intervalHolder[0];
 		String end = intervalHolder[intervalHolder.length-1];
+
+		Boolean startSign = true;
+		if(start.contains("-"))
+			startSign = false;
 		
-		String startSign = start.substring(0);
-		String endSign = end.substring(0);
-		
-		Boolean startPos = true;
-		if(startSign.equals("-"))
-			startPos = false;
-		
-		Boolean endPos = true;
-		if(endSign.equals("-"))
-			endPos = false;
+		Boolean endSign = true;
+		if(end.contains("-"))
+			endSign = false;
 		
 		// start	end		oriented
 		// true		true	false
@@ -36,11 +33,11 @@ public class Interval {
 		this.oriented = false;
 		
 		// Set (true, true) & (false, true) to be oriented = true
-		if(startPos || endPos)
+		if(startSign || endSign)
 			this.oriented = true;
 		
 		// Set (true, true) to be oriented = false
-		if(startPos && endPos)
+		if(startSign && endSign)
 			this.oriented = false;
 	}
 	
