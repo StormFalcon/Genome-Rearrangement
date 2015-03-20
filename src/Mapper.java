@@ -16,10 +16,10 @@ public class Mapper {
 		this.mappedSource = pair.source;
 		this.mappedTarget = pair.target;
 		
-		System.out.println("OS: " + this.originalSource);
-		System.out.println("OT: " + this.originalTarget);
-		System.out.println("MS: " + this.mappedSource);
-		System.out.println("MT: " + this.mappedTarget);
+		//System.out.println("OS: " + this.originalSource);
+		//System.out.println("OT: " + this.originalTarget);
+		//System.out.println("MS: " + this.mappedSource);
+		//System.out.println("MT: " + this.mappedTarget);
 	}
 
 	public Pair map()

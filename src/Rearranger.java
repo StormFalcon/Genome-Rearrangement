@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 
 public class Rearranger {
 
@@ -21,12 +23,25 @@ public class Rearranger {
 		{
 			int count = 0;
 			
-			// Test code
 			Mapper mapper = new Mapper(sourceGenome, targetGenome);
-			mapper.map();
+			
+			String mappedSource = mapper.mappedSource;
+			String mappedTarget = mapper.mappedTarget;
+			
+			ArrayList<Component> sourceComponent = findComponents(mappedSource);
+			ArrayList<Component> targetComponent = findComponents(mappedTarget);
+			
+			
 			
 			return count;
 		}
+	}
+	
+	public ArrayList<Component> findComponents(String sequence) 
+	{
+		ArrayList<Component> componentList = null;
+		
+		return componentList;
 	}
 	
 }
