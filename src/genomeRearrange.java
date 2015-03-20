@@ -9,8 +9,8 @@ public class genomeRearrange {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 
-		File inputFile = new File("C:\\Users\\YIM Wai Tsun\\Google Drive\\School Work\\CS3225 Combinatorial Methods In Bioinformatics\\Project2\\data\\mitochondrial.txt");
-		//File inputFile = new File("/Users/Flyer/Documents/School Work/CS3225 Combinatorial Methods In Bioinformatics/Project2/data/mitochondrial.txt");
+		//File inputFile = new File("C:\\Users\\YIM Wai Tsun\\Google Drive\\School Work\\CS3225 Combinatorial Methods In Bioinformatics\\Project2\\data\\mitochondrial.txt");
+		File inputFile = new File("/Users/Flyer/Documents/School Work/CS3225 Combinatorial Methods In Bioinformatics/Project2/data/mitochondrial.txt");
 		
 		FileReader fr = new FileReader(inputFile);
 		BufferedReader br = new BufferedReader(fr);
