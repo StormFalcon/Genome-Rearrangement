@@ -58,6 +58,7 @@ public class Rearranger {
 		Integer start = 1;
 		Integer next = start + 1;
 		
+		/************ NOTE TO SELF: check last interval next value ************/
 		for(int i=0; i<sourceHolder.length; i++)
 		{
 			// Look for start and next
@@ -87,7 +88,8 @@ public class Rearranger {
 			}
 			
 			// Determine order
-			int buildStartIndex, buildEndIndex;
+			int buildStartIndex = 0; 
+			int buildEndIndex = 0;
 			
 			if(startIndex < endIndex)
 			{
@@ -103,7 +105,16 @@ public class Rearranger {
 			
 			
 			// Form Interval Object
+			String strInterval = sourceHolder[buildStartIndex];
 			
+			for(int j=buildStartIndex+1; j<=buildEndIndex; j++)
+			{
+				strInterval = strInterval + " " + sourceHolder[j];
+			}
+			
+			Interval interval = new Interval(strInterval);
+			
+			intervalHolder[i] = interval;
 			/************ WORK IN PROGRESS ************/
 			
 			// Increment start and next
