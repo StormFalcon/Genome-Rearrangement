@@ -52,13 +52,37 @@ public class Rearranger {
 	
 	public Interval[] findInterval(String mappedSource)
 	{
+		// Tester code to show mappedSource
+		System.out.println(mappedSource);
+		
 		String[] sourceHolder = mappedSource.split(" ");
 		Interval[] intervalHolder = new Interval[sourceHolder.length];
 		
-		Integer start = 1;
+		// Make artificial sourceHolder
+		String[] duplicateSourceHolder = new String[sourceHolder.length+2];
+		Integer artificialStart = 0;
+		Integer artificialEnd = sourceHolder.length+1;
+		
+		// Tester code to check artificial start and end value
+		System.out.println("Artificial: " + artificialStart + " " + artificialEnd);
+		
+		// duplicate sourceHolder to artificial sourceHolder
+		duplicateSourceHolder[0] = artificialStart.toString();
+		duplicateSourceHolder[duplicateSourceHolder.length-1] = artificialEnd.toString();
+		
+		for(int i=0, j=1; i<sourceHolder.length; i++, j++)
+		{
+			duplicateSourceHolder[j] = sourceHolder[i];
+		}
+		
+		////////////////////////////////////////////////////////////////////
+		/** DuplicateSourceHolder not used, but things are working correctly
+		 * 	Possible logic error, need more checking here **/
+		////////////////////////////////////////////////////////////////////
+		
+		Integer start = 0;
 		Integer next = start + 1;
 		
-		/************ NOTE TO SELF: check last interval next value ************/
 		for(int i=0; i<sourceHolder.length; i++)
 		{
 			// Look for start and next
@@ -119,7 +143,7 @@ public class Rearranger {
 			Interval interval = new Interval(strInterval);
 			
 			// Tester Code
-			System.out.println(i+1);
+			System.out.println(i);
 			System.out.println(interval.interval);
 			System.out.println(interval.oriented);
 			System.out.println("------------------------");
@@ -127,9 +151,7 @@ public class Rearranger {
 			
 			intervalHolder[i] = interval;
 			/************ WORK IN PROGRESS ************/
-			/** All interval discovered correctly, except for last interval
-			 *  need to clean up interval content **/
-			
+
 			// Increment start and next
 			start++;
 			next++;
