@@ -70,12 +70,14 @@ public class Rearranger {
 			
 			for(int j=0; j<sourceHolder.length; j++)
 			{
-				String element = sourceHolder[i];
-				
+				String element = sourceHolder[j];
+
 				// Remove negative sign if there
 				if(element.contains("-"))
+				{	
 					element = element.substring(1);
-				
+				}
+					
 				if(element.equals(strStart))
 				{
 					startIndex = j;
@@ -86,6 +88,8 @@ public class Rearranger {
 					endIndex = j;
 				}
 			}
+			
+			//System.out.println(startIndex + " " + endIndex);
 			
 			// Determine order
 			int buildStartIndex = 0; 
@@ -114,14 +118,23 @@ public class Rearranger {
 			
 			Interval interval = new Interval(strInterval);
 			
+			// Tester Code
+			System.out.println(i+1);
+			System.out.println(interval.interval);
+			System.out.println(interval.oriented);
+			System.out.println("------------------------");
+			
+			
 			intervalHolder[i] = interval;
 			/************ WORK IN PROGRESS ************/
+			/** All interval discovered correctly, except for last interval
+			 *  need to clean up interval content **/
 			
 			// Increment start and next
 			start++;
 			next++;
 		}
-		
+		System.exit(0);
 		return intervalHolder;
 	}
 /**	
